@@ -1,7 +1,11 @@
 package dariocecchinato;
 
 import com.github.javafaker.Faker;
+import org.apache.commons.io.FileUtils;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -117,5 +121,44 @@ public class Application {
                 .collect(Collectors.groupingBy(Product::getCategory, Collectors.summingDouble(Product::getPrice)));
         sommaPrezziPerCategoria.forEach((categoria, totale) -> System.out.println("Categoria " + categoria + " Totale " + totale));
 
+
+        System.out.println("--------------------------------------------ESERCIZIO6------------------------------------");
+
+        File file = new File("esercizio5.txt");
+        try {
+            FileUtils.writeStringToFile(file,
+                    prodotti.get(0).getName() + "@" +
+                            prodotti.get(0).getCategory() + "@" +
+                            prodotti.get(0).getId() + "@" +
+                            prodotti.get(0).getPrice() + System.lineSeparator() +
+                            prodotti.get(2).getName() + "@" +
+                            prodotti.get(2).getCategory() + "@" +
+                            prodotti.get(2).getId() + "@" +
+                            prodotti.get(2).getPrice() + System.lineSeparator() +
+                            prodotti.get(3).getName() + "@" +
+                            prodotti.get(3).getCategory() + "@" +
+                            prodotti.get(3).getId() + "@" +
+                            prodotti.get(3).getPrice() + System.lineSeparator() +
+                            prodotti.get(4).getName() + "@" +
+                            prodotti.get(4).getCategory() + "@" +
+                            prodotti.get(4).getId() + "@" +
+                            prodotti.get(4).getPrice() + System.lineSeparator() +
+                            prodotti.get(5).getName() + "@" +
+                            prodotti.get(5).getCategory() + "@" +
+                            prodotti.get(5).getId() + "@" +
+                            prodotti.get(5).getPrice() + System.lineSeparator() +
+                            prodotti.get(6).getName() + "@" +
+                            prodotti.get(6).getCategory() + "@" +
+                            prodotti.get(6).getId() + "@" +
+                            prodotti.get(6).getPrice() + System.lineSeparator() +
+                            prodotti.get(7).getName() + "@" +
+                            prodotti.get(7).getCategory() + "@" +
+                            prodotti.get(7).getId() + "@" +
+                            prodotti.get(7).getPrice(), StandardCharsets.UTF_8
+
+            );
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
