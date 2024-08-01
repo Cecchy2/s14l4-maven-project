@@ -122,7 +122,7 @@ public class Application {
         sommaPrezziPerCategoria.forEach((categoria, totale) -> System.out.println("Categoria " + categoria + " Totale " + totale));
 
 
-        System.out.println("--------------------------------------------ESERCIZIO6------------------------------------");
+        //"------------------------------------------------------ESERCIZIO6-------------------------------------------");
 
         File file = new File("esercizio5.txt");
         try {
@@ -154,11 +154,19 @@ public class Application {
                             prodotti.get(7).getName() + "@" +
                             prodotti.get(7).getCategory() + "@" +
                             prodotti.get(7).getId() + "@" +
-                            prodotti.get(7).getPrice(), StandardCharsets.UTF_8
+                            prodotti.get(7).getPrice(), StandardCharsets.UTF_8);
 
-            );
+            //"------------------------------------------------------ESERCIZIO6-------------------------------------------");
+
+            String content = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+
+            String[] contentAsArray = content.split(System.lineSeparator());
+            System.out.println(Arrays.toString(contentAsArray));
+            
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 }
