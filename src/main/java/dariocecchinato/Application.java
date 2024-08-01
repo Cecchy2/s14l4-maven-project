@@ -98,9 +98,15 @@ public class Application {
         prodottiPiuCostosi.forEach(System.out::println);
 
         System.out.println("--------------------------------------------ESERCIZIO4------------------------------------");
-        /*OptionalDouble averageTotalOrders= orders.stream()
-                .map(Order::getProducts).mapToDouble(Product::getPrice)
-                .*/
+        OptionalDouble averageTotalOrders = orders.stream()
+                .mapToDouble(order -> order.getProducts().stream().mapToDouble(Product::getPrice).sum())
+                .average();
+
+        if (averageTotalOrders.isPresent()) {
+            System.out.println("La media totale degli ordini è: " + averageTotalOrders.getAsDouble());
+        } else {
+            System.out.println("Non ci sono ordini.");
+        }
 
         System.out.println("--------------------------------------------ESERCIZIO5------------------------------------");
 
