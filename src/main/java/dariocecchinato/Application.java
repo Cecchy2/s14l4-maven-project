@@ -162,7 +162,13 @@ public class Application {
 
             String[] contentAsArray = content.split(System.lineSeparator());
             System.out.println(Arrays.toString(contentAsArray));
-            
+
+            List<String> splittedContent = new ArrayList<>();
+            for (int i = 0; i < contentAsArray.length; i++) {
+                splittedContent.add(Arrays.toString(contentAsArray[i].split("@")));
+            }
+            System.out.println(splittedContent);
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);
