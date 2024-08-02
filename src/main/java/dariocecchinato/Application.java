@@ -88,7 +88,7 @@ public class Application {
                                 .mapToDouble(Product::getPrice)
                                 .sum())));
 
-        customerTotal.forEach((customer, total) -> System.out.println("Il totale speso dal cliente " + customer + "è di " + total));
+        customerTotal.forEach((customer, total) -> System.out.println("Il totale speso dal cliente " + customer.getName() + "è di " + total));
 
 
         System.out.println("--------------------------------------------ESERCIZIO3------------------------------------");
@@ -168,11 +168,8 @@ public class Application {
                 splittedContent.add(Arrays.toString(contentAsArray[i].split("@")));
             }
             System.out.println(splittedContent);
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
